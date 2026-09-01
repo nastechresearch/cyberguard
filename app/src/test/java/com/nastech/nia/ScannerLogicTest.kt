@@ -16,11 +16,11 @@ class ScannerLogicTest {
     }
 
     @Test
-    fun cgApp_alwaysSafe() {
+    fun ownApp_alwaysSafeRegardlessOfPermissions() {
         assertEquals(
             ThreatLevel.SAFE,
             ScannerLogic.classify(
-                "com.nastech.nia.cleaner",
+                "${ScannerLogic.OWN_PACKAGE}.cleaner",
                 listOf("android.permission.SEND_SMS")
             )
         )

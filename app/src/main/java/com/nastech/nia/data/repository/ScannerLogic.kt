@@ -7,8 +7,11 @@ object ScannerLogic {
     private val CRITICAL_TERMS = listOf("hack", "spy")
     private val LOW_TERMS = listOf("cleaner", "booster")
 
+    /** Packages that are always trusted — the app itself must never be flagged. */
+    val OWN_PACKAGE = com.nastech.nia.BuildConfig.APPLICATION_ID
+
     fun classify(packageName: String, permissions: List<String>): ThreatLevel = when {
-        packageName.contains("cyberguard") -> ThreatLevel.SAFE
+        packageName.startsWith(OWN_PACKAGE) -> ThreatLevel.SAFE
         CRITICAL_TERMS.any { packageName.contains(it) } -> ThreatLevel.CRITICAL
         permissions.any {
             it.contains("android.permission.SEND_SMS") ||
