@@ -24,6 +24,11 @@ import com.nastech.nia.ui.screens.applock.AppLockScreen
 import com.nastech.nia.ui.screens.antitheft.AntiTheftScreen
 import com.nastech.nia.ui.screens.scanner.ScannerScreen
 import com.nastech.nia.ui.screens.settings.SettingsScreen
+import com.nastech.nia.ui.screens.vault.VaultScreen
+import com.nastech.nia.ui.screens.wifi.WifiScanScreen
+import com.nastech.nia.ui.screens.passwords.PasswordCheckScreen
+import com.nastech.nia.ui.screens.privacy.PrivacyScreen
+import com.nastech.nia.ui.screens.junkcleaner.JunkCleanerScreen
 import com.nastech.nia.ui.theme.NeonCyan
 import com.nastech.nia.ui.theme.SurfaceDark
 import com.nastech.nia.ui.theme.TextSecondary
@@ -90,7 +95,11 @@ fun CyberGuardNavGraph() {
                 .padding(innerPadding)
         ) {
             composable(Screen.Home.route) {
-                HomeScreen()
+                HomeScreen(
+                    onQuickScan = { navController.navigate(Screen.Scanner.route) },
+                    onFullScan = { navController.navigate(Screen.Scanner.route) },
+                    onOpenTool = { route -> navController.navigate(route) }
+                )
             }
             composable(Screen.Scanner.route) {
                 ScannerScreen()
@@ -103,6 +112,21 @@ fun CyberGuardNavGraph() {
             }
             composable(Screen.Settings.route) {
                 SettingsScreen()
+            }
+            composable(Screen.Vault.route) {
+                VaultScreen()
+            }
+            composable(Screen.Wifi.route) {
+                WifiScanScreen()
+            }
+            composable(Screen.Passwords.route) {
+                PasswordCheckScreen()
+            }
+            composable(Screen.Privacy.route) {
+                PrivacyScreen()
+            }
+            composable(Screen.JunkCleaner.route) {
+                JunkCleanerScreen()
             }
         }
     }

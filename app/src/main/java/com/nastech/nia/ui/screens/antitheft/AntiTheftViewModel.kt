@@ -19,6 +19,12 @@ class AntiTheftViewModel(
     private val _location = mutableStateOf<String?>(null)
     val location: State<String?> = _location
 
+    private val _simAlertEnabled = mutableStateOf(false)
+    val simAlertEnabled: State<Boolean> = _simAlertEnabled
+
+    private val _smsCommandsEnabled = mutableStateOf(false)
+    val smsCommandsEnabled: State<Boolean> = _smsCommandsEnabled
+
     private val _busy = mutableStateOf(false)
     val busy: State<Boolean> = _busy
 
@@ -34,9 +40,19 @@ class AntiTheftViewModel(
         viewModelScope.launch {
             repository.lastKnownLocation.collectLatest { _location.value = it }
         }
+        viewModelScope.launch {
+            repository.simAlertEnabled.collectLatest { _simAlertEnabled.value = it }
+        }
+        viewModelScope.launch {
+            repository.smsCommandsEnabled.collectLatest { _smsCommandsEnabled.value = it }
+        }
     }
 
-    fun toggleArmed() = repository.setArmed(!_armed.value)
+    fun toggleArmed() = viewModelScope.launch { repository.setArmed(!_armed.value) }
+
+    fun toggleSimAlert() = viewModelScope.launch { repository.setSimAlertEnabled(!_simAlertEnabled.value) }
+
+    fun toggleSmsCommands() = viewModelScope.launch { repository.setSmsCommandsEnabled(!_smsCommandsEnabled.value) }
 
     fun locate() {
         if (_busy.value) return

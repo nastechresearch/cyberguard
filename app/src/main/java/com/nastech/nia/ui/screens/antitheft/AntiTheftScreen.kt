@@ -69,6 +69,20 @@ fun AntiTheftScreen() {
         StatusBanner(armed = vm.armed.value)
         Spacer(Modifier.height(16.dp))
         ArmCard(armed = vm.armed.value, onToggle = { vm.toggleArmed() })
+        Spacer(Modifier.height(12.dp))
+        SettingToggleCard(
+            title = "SIM change alert",
+            subtitle = "Notify if a different SIM is inserted",
+            checked = vm.simAlertEnabled.value,
+            onToggle = { vm.toggleSimAlert() }
+        )
+        Spacer(Modifier.height(12.dp))
+        SettingToggleCard(
+            title = "SMS remote commands",
+            subtitle = "Accept \"cia lock\"/\"cia wipe\"/... via SMS",
+            checked = vm.smsCommandsEnabled.value,
+            onToggle = { vm.toggleSmsCommands() }
+        )
         Spacer(Modifier.height(16.dp))
         ActionGrid(vm = vm)
         Spacer(Modifier.height(16.dp))
@@ -122,6 +136,46 @@ private fun StatusBanner(armed: Boolean) {
                     color = Color.White.copy(alpha = 0.9f)
                 )
             }
+        }
+    }
+}
+
+@Composable
+private fun SettingToggleCard(
+    title: String,
+    subtitle: String,
+    checked: Boolean,
+    onToggle: () -> Unit
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = SurfaceDark)
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column(Modifier.weight(1f)) {
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.titleLarge,
+                    color = MaterialTheme.colorScheme.onBackground
+                )
+                Text(
+                    text = subtitle,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = TextSecondary
+                )
+            }
+            Switch(
+                checked = checked,
+                onCheckedChange = { onToggle() },
+                colors = SwitchDefaults.colors(
+                    checkedThumbColor = NeonCyan,
+                    checkedTrackColor = NeonCyan.copy(alpha = 0.4f)
+                )
+            )
         }
     }
 }
