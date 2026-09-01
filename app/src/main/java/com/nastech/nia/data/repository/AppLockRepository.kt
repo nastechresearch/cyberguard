@@ -59,8 +59,11 @@ class AppLockRepository(
         val intent = android.content.Intent(android.content.Intent.ACTION_MAIN).apply {
             addCategory(android.content.Intent.CATEGORY_LAUNCHER)
         }
-        val resolveInfos: List<ResolveInfo> = if (isExportAllowed(minSdk = 33)) {
-            pm.queryIntentActivities(intent, android.content.pm.PackageManager.ResolveInfoFlags.of(0))
+        val resolveInfos: List<ResolveInfo> = if (android.os.Build.VERSION.SDK_INT >= 33) {
+            pm.queryIntentActivities(
+                intent,
+                android.content.pm.PackageManager.ResolveInfoFlags.of(0)
+            )
         } else {
             @Suppress("DEPRECATION")
             pm.queryIntentActivities(intent, 0)
@@ -94,11 +97,6 @@ class AppLockRepository(
 
     suspend fun clearUnlockState() {
         UnlockState.clear()
-    }
-
-    companion object {
-        @Suppress("DEPRECATION")
-        private fun isExportAllowed(minSdk: Int): Boolean = true
     }
 }
 
