@@ -20,8 +20,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.nastech.nia.ui.screens.home.HomeScreen
-import com.nastech.nia.ui.components.PlaceholderScreen
 import com.nastech.nia.ui.screens.applock.AppLockScreen
+import com.nastech.nia.ui.screens.antitheft.AntiTheftScreen
+import com.nastech.nia.ui.screens.scanner.ScannerScreen
+import com.nastech.nia.ui.screens.settings.SettingsScreen
 import com.nastech.nia.ui.theme.NeonCyan
 import com.nastech.nia.ui.theme.SurfaceDark
 import com.nastech.nia.ui.theme.TextSecondary
@@ -91,31 +93,16 @@ fun CyberGuardNavGraph() {
                 HomeScreen()
             }
             composable(Screen.Scanner.route) {
-                PlaceholderScreen(
-                    icon = Screen.Scanner.icon,
-                    title = "Scanner",
-                    subtitle = "App scanner launching in Phase 2",
-                    modifier = Modifier.fillMaxSize()
-                )
+                ScannerScreen()
             }
             composable(Screen.AntiTheft.route) {
-                PlaceholderScreen(
-                    icon = Screen.AntiTheft.icon,
-                    title = "Anti-Theft",
-                    subtitle = "Device protection launching in Phase 3",
-                    modifier = Modifier.fillMaxSize()
-                )
+                AntiTheftScreen()
             }
             composable(Screen.AppLock.route) {
                 AppLockScreen()
             }
             composable(Screen.Settings.route) {
-                PlaceholderScreen(
-                    icon = Screen.Settings.icon,
-                    title = "Settings",
-                    subtitle = "Settings coming soon",
-                    modifier = Modifier.fillMaxSize()
-                )
+                SettingsScreen()
             }
         }
     }
