@@ -1,0 +1,10 @@
+[project]
+name = "cyberguard-backend"
+version = "0.1.0"
+description = "CyberGuard by NastechResearch — optional cloud backend"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+pythonpath = ["."]

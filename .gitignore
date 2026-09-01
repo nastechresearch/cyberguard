@@ -21,5 +21,13 @@ captures/
 # Kotlin
 .kotlin/
 
+# Python / Backend
+__pycache__/
+*.py[cod]
+backend/.venv/
+.pytest_cache/
+.env
+*.egg-info/
+
 # OS
 Thumbs.db

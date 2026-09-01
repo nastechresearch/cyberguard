@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">CyberGuard</string>
+    <string name="full_app_name">CyberGuard by NastechResearch</string>
     <string name="tagline">Your phone. Protected.</string>
+    <string name="copyright">© NastechResearch. All rights reserved.</string>
+    <string name="owner_name">NastechResearch</string>
 
     <string name="nav_home">Home</string>
     <string name="nav_scanner">Scanner</string>

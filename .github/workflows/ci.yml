@@ -11,8 +11,40 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  backend:
+    name: Backend (pytest)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run pytest
+        run: pytest
+
+      - name: Upload report (always)
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: backend-report
+          path: backend/.pytest_cache/
+          if-no-files-found: ignore
+
   build-and-test:
-    name: Build, Test & Lint
+    name: App build, test & lint
     runs-on: ubuntu-latest
 
     steps:
