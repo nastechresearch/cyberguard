@@ -21,6 +21,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.nastech.nia.ui.screens.home.HomeScreen
 import com.nastech.nia.ui.components.PlaceholderScreen
+import com.nastech.nia.ui.screens.applock.AppLockScreen
 import com.nastech.nia.ui.theme.NeonCyan
 import com.nastech.nia.ui.theme.SurfaceDark
 import com.nastech.nia.ui.theme.TextSecondary
@@ -106,12 +107,7 @@ fun CyberGuardNavGraph() {
                 )
             }
             composable(Screen.AppLock.route) {
-                PlaceholderScreen(
-                    icon = Screen.AppLock.icon,
-                    title = "App Lock",
-                    subtitle = "App Lock launching in Phase 1",
-                    modifier = Modifier.fillMaxSize()
-                )
+                AppLockScreen()
             }
             composable(Screen.Settings.route) {
                 PlaceholderScreen(

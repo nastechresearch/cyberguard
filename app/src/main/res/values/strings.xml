@@ -17,4 +17,9 @@
 
     <string name="btn_quick_scan">Quick Scan</string>
     <string name="btn_full_scan">Full Scan</string>
+
+    <string name="applock_channel_name">App Lock</string>
+    <string name="applock_channel_desc">Protects selected apps with PIN/biometric</string>
+    <string name="applock_notif_title">App Lock active</string>
+    <string name="applock_notif_desc">Protecting your apps</string>
 </resources>
