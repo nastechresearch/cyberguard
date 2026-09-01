@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="amoled_black">#000000</color>
+    <color name="surface_dark">#121212</color>
+    <color name="surface_elevated">#1E1E1E</color>
+    <color name="neon_cyan">#00E5FF</color>
+    <color name="neon_purple">#9F00FF</color>
+    <color name="neon_green">#00E676</color>
+    <color name="neon_red">#FF1744</color>
+</resources>
