@@ -11,6 +11,7 @@ import androidx.compose.material.icons.filled.Wifi
 import androidx.compose.material.icons.filled.Password
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.PrivacyTip
+import androidx.compose.material.icons.filled.Psychology
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.nastech.nia.R
 
@@ -30,6 +31,7 @@ sealed class Screen(
     data object Passwords : Screen("passwords", R.string.nav_passwords, Icons.Filled.Password)
     data object Privacy : Screen("privacy", R.string.nav_privacy, Icons.Filled.PrivacyTip)
     data object JunkCleaner : Screen("junk_cleaner", R.string.nav_junk_cleaner, Icons.Filled.Delete)
+    data object Brain : Screen("brain", R.string.nav_brain, Icons.Filled.Psychology)
 }
 
 val bottomNavItems = listOf(

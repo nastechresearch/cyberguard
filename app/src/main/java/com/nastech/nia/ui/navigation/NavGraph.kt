@@ -29,6 +29,7 @@ import com.nastech.nia.ui.screens.wifi.WifiScanScreen
 import com.nastech.nia.ui.screens.passwords.PasswordCheckScreen
 import com.nastech.nia.ui.screens.privacy.PrivacyScreen
 import com.nastech.nia.ui.screens.junkcleaner.JunkCleanerScreen
+import com.nastech.nia.ui.screens.brain.BrainScreen
 import com.nastech.nia.ui.theme.NeonCyan
 import com.nastech.nia.ui.theme.SurfaceDark
 import com.nastech.nia.ui.theme.TextSecondary
@@ -127,6 +128,9 @@ fun CyberGuardNavGraph() {
             }
             composable(Screen.JunkCleaner.route) {
                 JunkCleanerScreen()
+            }
+            composable(Screen.Brain.route) {
+                BrainScreen()
             }
         }
     }

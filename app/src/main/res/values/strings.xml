@@ -17,6 +17,7 @@
     <string name="nav_passwords">Passwords</string>
     <string name="nav_privacy">Privacy</string>
     <string name="nav_junk_cleaner">Junk</string>
+    <string name="nav_brain">Brain AI</string>
 
     <string name="dashboard_title">Security Dashboard</string>
     <string name="dashboard_subtitle">Threat protection status</string>
