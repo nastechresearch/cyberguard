@@ -1,7 +1,7 @@
 package com.nastech.nia.ui.screens.brain
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -28,7 +28,7 @@ import com.nastech.nia.ui.theme.purpleGlow
 fun BrainScreen(
     onConfigure: () -> Unit = {},
 ) {
-    BoxWithConstraints(
+    Box(
         modifier = Modifier
             .fillMaxSize()
             .background(AmoledBlack)

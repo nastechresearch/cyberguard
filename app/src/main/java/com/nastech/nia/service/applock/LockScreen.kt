@@ -14,7 +14,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material.icons.filled.Backspace
+import androidx.compose.material.icons.automirrored.filled.Backspace
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -166,7 +166,7 @@ private fun PinKey(label: String, onKey: () -> Unit) {
         ) {
             when (label) {
                 "⌫" -> Icon(
-                    imageVector = Icons.Filled.Backspace,
+                    imageVector = Icons.AutoMirrored.Filled.Backspace,
                     contentDescription = "Delete",
                     tint = MaterialTheme.colorScheme.onSurfaceVariant
                 )
